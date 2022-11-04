@@ -8,30 +8,47 @@ deploying -> echo deploying
 Upload the file to a new repo in your github using git commands
 
 """
-pipeline {
-    agent any 
-
-    stages {
-        stage('fetching'){
-            steps {
-                echo "=====fetching======="
-                }
+pipeline{
+    agent any
+    stages{
+        stage("fetching"){
+            steps{
+                echo "========fetching========"
             }
-        stage('building'){
-            steps {
-                echo "=====building======="
-            }
+            
         }
-        stage('testing'){
-            steps {
-                echo "=====testing======="
+        stage("building"){
+            steps{
+                echo "========building========"
             }
+            
         }
-        stage('deploying'){
-            steps {
-                echo "=====deploying======="
+        stage("testing"){
+            steps{
+                echo "========testing========"
             }
+            
         }
 
+        stage("deploying"){
+            steps{
+                echo "========deploying========"
+            }
+            
+        }
+        
     }
+    post{
+        always{
+            echo "====++++always++++===="
+        }
+        success{
+            echo "====++++only when successful++++===="
+        }
+        failure{
+            echo "====++++only when failed++++===="
+        }
+    }
+
+   
 }
