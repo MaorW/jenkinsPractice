@@ -17,7 +17,7 @@ pipeline{
             }
             
         }
-        stage("building"){
+        stage("building"){ // Should be under timeout
             steps{
                 echo "========building========"
             }
@@ -30,7 +30,7 @@ pipeline{
             
         }
 
-        stage("deploying"){
+        stage("deploying"){ // Should be under timeout
             steps{
                 echo "========deploying========"
             }
@@ -39,10 +39,10 @@ pipeline{
         
     }
     post{
-        always{
+        always{ // Should be used for closing connections.. files.. Containers..
             echo "====++++always++++===="
         }
-        success{
+        success{ 
             echo "====++++only when successful++++===="
         }
         failure{
