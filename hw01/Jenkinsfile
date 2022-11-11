@@ -8,7 +8,7 @@ pipeline{
             steps{
                 echo "========executing A========"
                 echo "Git cloning the repo..."
-                git clone https://github.com/devopsPRO27/tictactoe
+                git clone https://github.com/devopsPRO27/tictactoe.git
                 echo "Git repo has been cloned..."
                 echo "Executing main.py file"
                 python3 tictactoe/main.py
