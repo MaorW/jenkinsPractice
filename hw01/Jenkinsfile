@@ -1,0 +1,40 @@
+// HW instructions - https://docs.google.com/document/d/1L2xEpABMBZbciuLVFSsLD6fH5jcR0bPwLt2-wvzKNj0/edit?usp=sharing
+pipeline{
+    agent{
+        label "hw01"
+    }
+    stages{
+        stage("A"){
+            steps{
+                echo "========executing A========"
+                echo "Git cloning the repo..."
+                git clone https://github.com/devopsPRO27/tictactoe
+                echo "Git repo has been cloned..."
+                echo "Executing main.py file"
+                python3 tictactoe/main.py
+            }
+            // post{
+            //     always{
+            //         echo "========always========"
+            //     }
+            //     success{
+            //         echo "========A executed successfully========"
+            //     }
+            //     failure{
+            //         echo "========A execution failed========"
+            //     }
+            // }
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
