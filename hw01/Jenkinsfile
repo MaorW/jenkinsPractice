@@ -13,19 +13,20 @@ pipeline{
         }
         stage("building..."){
             steps{
-                echo "=== Building ==="                
+                echo "=== Building ==="      
+                sh 'docker build -t HW/01 jenkinsHW01'          
             }
         }
-        stage("Testing..."){
-            steps{
-                echo "=== Building ==="                
-            }
-        }
-        stage("deploying..."){
-            steps{
-                echo "=== deploying ==="                
-            }
-        }
+        // stage("Testing..."){
+        //     steps{
+        //         echo "=== Testing ==="                
+        //     }
+        // }
+        // stage("deploying..."){
+        //     steps{
+        //         echo "=== deploying ==="                
+        //     }
+        // }
     }
     post{
         always{
@@ -36,6 +37,7 @@ pipeline{
         }
         failure{
             echo "========pipeline execution failed========"
+            mail bcc: '', body: "<b>Example</b><br>\n\<br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "learningmw1991@gmail.com";
         }
     }
 }
