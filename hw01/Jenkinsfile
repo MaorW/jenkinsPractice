@@ -14,8 +14,10 @@ pipeline{
         stage("building..."){
             retry(3){
                 steps{
-                    echo "=== Building ==="      
-                    sh 'docker build -t HW/01 jenkinsHW01'          
+                    echo "=== Building a docker image ==="      
+                        script{
+                            sh 'docker build -t HW/01 jenkinsHW01'
+                        }
                 }
             }
         }
