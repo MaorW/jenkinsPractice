@@ -1,29 +1,30 @@
 // HW instructions - https://docs.google.com/document/d/1L2xEpABMBZbciuLVFSsLD6fH5jcR0bPwLt2-wvzKNj0/edit?usp=sharing
 pipeline{
-    agent{
-        label "hw01"
-    }
+    agent any
     stages{
-        stage("A"){
+        stage("Cloning..."){
             steps{
-                echo "========executing A========"
-                echo "Git cloning the repo..."
-                git clone https://github.com/MaorW/jenkinsHW01.git
+                echo "=== Git cloning the repo ==="
+                sh 'git clone https://github.com/MaorW/jenkinsHW01.git'
                 echo "Git repo has been cloned..."
                 echo "Executing main.py file"
-                python3 jenkinsHW01/main.py
+                sh "python3 jenkinsHW01/main.py"
             }
-            // post{
-            //     always{
-            //         echo "========always========"
-            //     }
-            //     success{
-            //         echo "========A executed successfully========"
-            //     }
-            //     failure{
-            //         echo "========A execution failed========"
-            //     }
-            // }
+        }
+        stage("building..."){
+            steps{
+                echo "=== Building ==="                
+            }
+        }
+        stage("Testing..."){
+            steps{
+                echo "=== Building ==="                
+            }
+        }
+        stage("deploying..."){
+            steps{
+                echo "=== deploying ==="                
+            }
         }
     }
     post{
