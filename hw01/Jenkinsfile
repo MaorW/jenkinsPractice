@@ -8,10 +8,10 @@ pipeline{
             steps{
                 echo "========executing A========"
                 echo "Git cloning the repo..."
-                git clone https://github.com/devopsPRO27/tictactoe.git
+                git clone https://github.com/MaorW/jenkinsHW01.git
                 echo "Git repo has been cloned..."
                 echo "Executing main.py file"
-                python3 tictactoe/main.py
+                python3 jenkinsHW01/main.py
             }
             // post{
             //     always{
