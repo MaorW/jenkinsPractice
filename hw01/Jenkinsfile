@@ -12,9 +12,11 @@ pipeline{
             }
         }
         stage("building..."){
-            steps{
-                echo "=== Building ==="      
-                sh 'docker build -t HW/01 jenkinsHW01'          
+            retry(3){
+                steps{
+                    echo "=== Building ==="      
+                    sh 'docker build -t HW/01 jenkinsHW01'          
+                }
             }
         }
         // stage("Testing..."){
