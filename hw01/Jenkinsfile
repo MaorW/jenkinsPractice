@@ -16,9 +16,9 @@ pipeline{
                 steps{
                     echo "=== Building ==="      
                     sh 'docker build -t HW/01 jenkinsHW01'          
+                        }
                 }
             }
-        }
         // stage("Testing..."){
         //     steps{
         //         echo "=== Testing ==="                
