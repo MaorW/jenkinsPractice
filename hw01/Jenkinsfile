@@ -39,7 +39,7 @@ pipeline{
         }
         failure{
             echo "========pipeline execution failed========"
-            mail bcc: '', body: '', cc: '', from: '', replyTo: '', subject: 'Failure msg from Jenkins', to: 'learningmw1991@gmail.com'
+            mail bcc: '', body: 'Please follow the Jenkins error: ', cc: '', from: '', replyTo: '', subject: 'Failure msg from Jenkins', to: 'learningmw1991@gmail.com'
         }
     }
 }
