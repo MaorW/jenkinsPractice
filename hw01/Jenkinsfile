@@ -15,7 +15,7 @@ pipeline{
             steps{
                 retry(3){
                     echo "=== Building ==="      
-                    sh 'docker build -t HW/01 jenkinsHW01'          
+                    sh 'docker build -t learningmw1991/jenkins_practice:01 jenkinsHW01'          
                 }
             }
         }
