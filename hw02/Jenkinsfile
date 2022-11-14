@@ -5,7 +5,7 @@ pipeline{
         stage("Cloning..."){
             steps{
                 echo "=== Git cloning the repo ==="
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/MaorW/jenkinsHW01.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/MaorW/jenkinsHW02.git']]])
                 echo "Git repo has been cloned..."
             }
         }
